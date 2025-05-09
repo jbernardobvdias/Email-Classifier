@@ -14,6 +14,6 @@ def read_csv(filename, labeled=False):
     with open(filename, 'r', newline='') as f:
         reader = csv.DictReader(f)
         if labeled:
-            return [EmailWLabel(row['sender'], row['content'], row['label']) for row in reader]
+            return [EmailWLabel(row['sender'], row['subject'], row['content'], row['label']) for row in reader]
         else:
-            return [Email(row['sender'], row['content']) for row in reader]
+            return [Email(row['sender'], row['subject'], row['content']) for row in reader]
